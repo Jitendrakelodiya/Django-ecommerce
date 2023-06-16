@@ -82,10 +82,11 @@
                                  </a>
                                
                                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                   <a  class="dropdown-item" href="{% url 'electronics' %}">Electronics</a>
-                                   <a class="dropdown-item" href="{% url 'groceries' %}">Groceries</a>
-                                   <a class="dropdown-item" href="{% url 'clothes' %}">Clothes</a>
-                                   <a class="dropdown-item" href="{% url 'home&kitchen' %}">Home & Kitchen</a>
+                                    {% for i in categories %}
+                                    <option ><a href=/products/product_all/{{i.category}}> {{i.category}}</option>
+                                   {% comment %} <a class="dropdown-item" href="/product/product_all""{{i.category}}">{{i.category}}</a> {% endcomment %}
+                                   {% endfor %%}
+                           
                                  </div>
                                </div>
                               <li class="{% if request.path == '/contact/' %} active {% endif %}">

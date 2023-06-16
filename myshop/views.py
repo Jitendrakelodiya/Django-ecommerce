@@ -2,10 +2,16 @@ from django.shortcuts import render
 from django.core.mail import send_mail
 from django.conf import settings
 from django.template.loader import render_to_string
+from product.models import Category_shop
+from product.views import *
 
 
 def Home(request):
-    return render(request,"home.html")
+  categories = Category_shop.objects.all()
+  context = {
+    "categories":categories
+  }
+  return render(request,"home.html",context)
 
 # def (request):
 #     return render(request,"about.html")
