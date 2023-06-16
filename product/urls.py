@@ -3,9 +3,10 @@ from .views import *
 
 urlpatterns = [
 
-    path('electronics',Electronics,name="electronics"),
-    path('groceries',Groceries,name="groceries"),
-    path('clothes',Clothes,name="clothes"),
-    path('home&kitchen',Home_Kitchen,name="home&kitchen"),
-    path('common',Common,name="common"),
+    # path('electronics',Electronics,name="Electronics"),
+    # path('groceries',Groceries,name="Groceries"),
+    # path('clothes',Clothes,name="Cloths"),
+    # path('home&kitchen',Home_Kitchen,name="Home_Kitchen"),
+    path('product_all/<str:pname>',Product,name="product_all"),
+    path('common/',Common,name="common"),
 ]

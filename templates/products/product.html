@@ -2,7 +2,7 @@
 
 {% block start %}
 
-      <!-- end header -->
+      {% comment %} <!-- end header -->
       <!-- products -->
       <div  class="products">
          <div class="container">
@@ -79,8 +79,45 @@
                </div>
             </div>
          </div>
-      </div>
+      </div> {% endcomment %}
       <!-- end products -->
       <!--  footer -->
+
+      {% comment %} <select name="Category" >
+         {% for i in Prod_data %}
+         <option {% url 'product' %} value="{{i.product_name}}">{{i.product_name}}</option>
+         {% endfor %}
+      </select>
+   </div> {% endcomment %}
+ 
+  
+<div name="Category" >
+                       {% for i in Prod_data %}
+                        <h3>{{i.product_name}}</h3>   
+                        <div class="col-md-4 margin_bottom1">
+                           <div class="product_box">
+                              <img src="/media/{{i.product_image}}" href="#" alt="no image">
+                              <p class="rupay">Price: {{i.product_price}}</p>
+                              <p>{{i.product_desc}}</p>
+                              <p>{{i.pub_date}}</p>
+                              {% comment %} <p>{{i.product_price}}</p> {% endcomment %}
+                              <form action="/" method = "POST">
+                                 {% csrf_token %}
+                                 <input type="text" name="productcard" value="{{i.id}}">
+                                 <input type="submit" class="float-right btn 
+                                 btn-light border btn-sm" value="Add to Card" >
+                                 <!-- <button style=" padding: 8px; border:solid rgb(2, 2, 15); background-color: #89edd6;" >ADD TO CARD</button> -->
+                              </form>
+                              <button style=" padding: 8px; border:solid rgb(2, 2, 15); background-color: #e39ec4" >BUY NOW</button>
+                              
+                              
+                           </div>
+                        </div>
+                        {% endfor %}
+</div>
+
+
+                     
+
 
       {% endblock %}

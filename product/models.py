@@ -5,61 +5,61 @@ from autoslug import AutoSlugField
 # Create your models here.
 
 
-class Elec_Product(models.Model):
-    product_id = models.AutoField
-    product_name = models.CharField(max_length=50)
-    product_price = models.IntegerField(default=0)
-    product_desc = models.CharField(max_length=500)
-    pub_date = models.DateField()
-    product_image = models.ImageField(upload_to="static/images", default="")
-    slug = models.SlugField(unique=True, blank=True, null=True)
+# class Elec_Product(models.Model):
+#     product_id = models.AutoField
+#     product_name = models.CharField(max_length=50)
+#     product_price = models.IntegerField(default=0)
+#     product_desc = models.CharField(max_length=500)
+#     pub_date = models.DateField()
+#     product_image = models.ImageField(upload_to="static/images", default="")
+#     slug = models.SlugField(unique=True, blank=True, null=True)
 
-    # elec_slug = AutoSlugField(populate_from='product_name',unique=True,null=True,default=None)
+#     # elec_slug = AutoSlugField(populate_from='product_name',unique=True,null=True,default=None)
 
-    def __str__(self):
-        return self.product_name
+#     def __str__(self):
+#         return self.product_name
     
-class Cloth_Product(models.Model):
-    product_id = models.AutoField
-    product_name = models.CharField(max_length=50)
-    product_price = models.IntegerField(default=0)
-    product_desc = models.CharField(max_length=500)
-    pub_date = models.DateField()
-    product_image = models.ImageField(upload_to="static/images", default="")
-    slug = models.SlugField(unique=True, blank=True, null=True)
+# class Cloth_Product(models.Model):
+#     product_id = models.AutoField
+#     product_name = models.CharField(max_length=50)
+#     product_price = models.IntegerField(default=0)
+#     product_desc = models.CharField(max_length=500)
+#     pub_date = models.DateField()
+#     product_image = models.ImageField(upload_to="static/images", default="")
+#     slug = models.SlugField(unique=True, blank=True, null=True)
 
-    # elec_slug = AutoSlugField(populate_from='product_name',unique=True,null=True,default=None)
+#     # elec_slug = AutoSlugField(populate_from='product_name',unique=True,null=True,default=None)
 
-    def __str__(self):
-        return self.product_name  
+#     def __str__(self):
+#         return self.product_name  
 
-class H_K_Product(models.Model):
-    product_id = models.AutoField
-    product_name = models.CharField(max_length=50)
-    product_price = models.IntegerField(default=0)
-    product_desc = models.CharField(max_length=500)
-    pub_date = models.DateField()
-    product_image = models.ImageField(upload_to="static/images", default="")
-    slug = models.SlugField(unique=True, blank=True, null=True)
+# class H_K_Product(models.Model):
+#     product_id = models.AutoField
+#     product_name = models.CharField(max_length=50)
+#     product_price = models.IntegerField(default=0)
+#     product_desc = models.CharField(max_length=500)
+#     pub_date = models.DateField()
+#     product_image = models.ImageField(upload_to="static/images", default="")
+#     slug = models.SlugField(unique=True, blank=True, null=True)
 
-    # elec_slug = AutoSlugField(populate_from='product_name',unique=True,null=True,default=None)
+#     # elec_slug = AutoSlugField(populate_from='product_name',unique=True,null=True,default=None)
 
-    def __str__(self):
-        return self.product_name
+#     def __str__(self):
+#         return self.product_name
     
-class Groceries_Product(models.Model):
-    product_id = models.AutoField
-    product_name = models.CharField(max_length=50)
-    product_price = models.IntegerField(default=0)
-    product_desc = models.CharField(max_length=500)
-    pub_date = models.DateField()
-    product_image = models.ImageField(upload_to="static/images", default="")
-    slug = models.SlugField(unique=True, blank=True, null=True)
+# class Groceries_Product(models.Model):
+#     product_id = models.AutoField
+#     product_name = models.CharField(max_length=50)
+#     product_price = models.IntegerField(default=0)
+#     product_desc = models.CharField(max_length=500)
+#     pub_date = models.DateField()
+#     product_image = models.ImageField(upload_to="static/images", default="")
+#     slug = models.SlugField(unique=True, blank=True, null=True)
 
-    # elec_slug = AutoSlugField(populate_from='product_name',unique=True,null=True,default=None)
+#     # elec_slug = AutoSlugField(populate_from='product_name',unique=True,null=True,default=None)
 
-    def __str__(self):
-        return self.product_name
+#     def __str__(self):
+#         return self.product_name
 
 # class Category_type(models.Model):
 #     status = (
@@ -109,11 +109,13 @@ class Product_shop(models.Model):
     product_name = models.CharField( max_length=50)
     product_price = models.CharField(max_length=20)
     product_desc = models.CharField(max_length=500)
-    pub_date = models.DateField()
-    product_image = models.ImageField(upload_to="static/images", default="")
+    pub_date = models.DateField(auto_now_add=True)
+    product_image = models.ImageField(upload_to="media/static/images", null=True)
     mark = models.BooleanField(default=False)
     elec_slug = AutoSlugField(populate_from='product_name',unique=True,null=True,default=None)
 
 
     def __str__(self):
         return self.product_name
+
+

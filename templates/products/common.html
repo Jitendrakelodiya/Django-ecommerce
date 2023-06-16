@@ -16,20 +16,20 @@
             </div>
             <div class="row">
                <div class="col-md-10 offset-md-1">
-                  <form id="request" class="main_form" method = "POST" action = "{% url 'common' %}">
-                  {% csrf_token %}
+                  <form id="request" class="main_form" method = "POST" enctype="multipart/form-data" action = "{% url 'common' %}">
+                     {% csrf_token %}
                      <div class="row">
                         <div class="col-md-12 ">
                            <div class="dropdown show" name = "category" >
                               <!-- <a style="background-color:  rgb(80 80 201);" class="btn btn-secondary dropdown-toggle" href="#"  role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Products
                               </a> -->
-                              <select name="cars" id="cars" >
-                                 <option value="volvo">Electronics</option>
-                                 <option value="saab">Groceries</option>
-                                 <option value="opel">Clothes</option>
-                                 <option value="audi">Home & Kitchen</option>
-                               </select>
+                              <select name="Category" >
+                                 {% for i in categories %}
+                                 {% comment %} <option value="{% url 'common' "{{i.category}}" %}">{{i.category}}</option> {% endcomment %}
+                                 <option value={{i.category}}>{{i.category}}</option>
+                                 {% endfor %}
+                              </select>
                            </div>
                             
                         </div>
@@ -49,7 +49,10 @@
                            <input class="contactus" placeholder="Image" type="file" name="product_image"> 
                         </div>
                         <div class="col-md-12">
-                           <button class="send_btn">Send</button>
+                           <input class="contactus" > 
+                        </div>
+                        <div class="col-md-12">
+                           <button class="send_btn" placeholder="Price" type="button" name="product_price">Add To Card</button>
                         </div>
                      </div>
                   </form>
